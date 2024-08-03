@@ -1,4 +1,5 @@
 # PoeSettlersShippingCalculator
+Simple calculator for PoE 3.25 shipping mechanic: https://www.poewiki.net/wiki/Kingsmarch#Shipping
 
 To start your Phoenix server:
 

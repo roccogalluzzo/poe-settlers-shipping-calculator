@@ -1,0 +1,46 @@
+<div class="space-y-10 divide-y divide-gray-900/10">
+  <div class="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-2">
+    <div class="px-4 sm:px-0">
+      <h2 class="text-base font-semibold leading-7 text-gray-900">Calculator</h2>
+      <p class="mt-1 text-sm leading-6 text-gray-600">
+<%= if @resources_to_send do %>
+  Resources to send: <%= @resources_to_send %>
+<% end %>
+<%= if @error do %>
+  Error: <%= @error %>
+<% end %></p>
+    </div>
+
+    <.form for={@form} phx-change="calculate" name="form" class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-3">
+      <div class="px-4 py-6 sm:p-8">
+        <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-8">
+          <div class="sm:col-span-3">
+            <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Requested</label>
+            <div class="mt-2">
+              <.input type="text" field={@form[:resources_requested]} inputmode="numeric" pattern="[0-9]*" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            </div>
+          </div>
+
+          <div class="sm:col-span-3">
+            <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">already sent</label>
+            <div class="mt-2">
+              <.input type="text" field={@form[:resources_sent]} inputmode="numeric" pattern="[0-9]*" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">bonus</label>
+            <div class="mt-2">
+              <.input type="text" inputmode="numeric" pattern="[0-9]*" field={@form[:resources_bonus]} class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            </div>
+          </div>
+            <div class="sm:col-span-2">
+            <div class="mt-2">
+            Bars
+              <.input type="checkbox" field={@form[:bars]} class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </.form>
+  </div>
+</div>
